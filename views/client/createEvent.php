@@ -1,0 +1,10 @@
+<html>
+    <head>
+        <?php require("../../partials/client/head.php") ?>
+    </head>
+	<body>
+		<?php require("../../partials/client/header.php") ?>
+		Create Event Page
+		<?php require("../../partials/client/header-end.php") ?>
+	</body>
+</html>
