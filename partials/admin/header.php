@@ -1,3 +1,8 @@
+<?php    
+    require_once __DIR__ . "/../../controllers/admin/sessionManage.php";
+?>
+
+
 <div id="heading">
     <a href="../../views/admin/dashboard.php" style="text-decoration: none;"><h2 id="logo">NearVibe</h2></a>
 
@@ -47,5 +52,9 @@
             <?php } ?>
         </a>
 
-        <a href="../../index.php"><button id="lo">Logout</button></a>
+
+        <form action="../../controllers/logout.php" method="post">
+            <button id="db" type="submit">Logout</button>
+        </form>
+
     </div>
