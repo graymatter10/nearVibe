@@ -7,6 +7,12 @@ if(!isset($currentUser))
 require_once("../../models/eventsModel.php");
 $eid=(int)($_GET['eid'] ?? 0);
 $event=['title'=>'','description'=>'','tprice'=>'','latitude'=>'','longitude'=>''];
+if ($_SERVER['REQUEST_METHOD']=='GET' && isset($_SESSION['corporateEventCreated']))
+{
+    $message=$_SESSION['corporateEventCreated'];
+    unset($_SESSION['corporateEventCreated']);
+}
+
 if ($eid)
 {
     $event=getEvent($eid);
@@ -30,9 +36,23 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
     }
     else
     {
-        saveEvent($eid,$_SESSION['uid'],$title,$description,$price,$lat,$lng,"CORPORATE");
-        header("Location: manageEvent.php");
-        exit();
+        if(saveEvent($eid,$_SESSION['uid'],$title,$description,$price,$lat,$lng,"CORPORATE"))
+        {
+            if($eid==0)
+            {
+                $_SESSION['corporateEventCreated']="Event created successfully.";
+                header("Location: createEvent.php");
+            }
+            else
+            {
+                header("Location: manageEvent.php");
+            }
+            exit();
+        }
+        else
+        {
+            $message="Event could not be saved. Please try again.";
+        }
     }
 }
 ?>
