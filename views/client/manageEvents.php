@@ -9,6 +9,8 @@
 
 Manage Event Page
 
+This is a test merge
+
 <?php require("../../partials/client/header-end.php") ?>
     
 </body>
