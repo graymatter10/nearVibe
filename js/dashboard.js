@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function()
         detailsTitle.textContent = event.title;
         detailsDescription.textContent = event.description;
 
-        if(event.type == "CORPORATE")
+        if(canBuyTicket && event.type == "CORPORATE")
         {
             buyTicketBtn.href = "../../views/client/buyTicket.php?id=" + event.eid;
             buyTicketBtn.style.display = "inline-block";
