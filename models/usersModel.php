@@ -34,8 +34,7 @@ function checkPassword($password, $stored)
 function savePassword($uid, $password)
 {
     $conn=dbConnection();
-    $salt=random_bytes(8);
-    $hash="p1$".base64_encode($salt.hash_pbkdf2("sha256",$password,$salt,600000,24,true));
+    $hash=md5($password);
     $stmt=mysqli_prepare($conn,"UPDATE users SET password=?, reset_token=NULL WHERE uid=?");
     mysqli_stmt_bind_param($stmt,"si",$hash,$uid);
     return mysqli_stmt_execute($stmt);
