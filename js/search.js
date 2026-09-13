@@ -1,27 +1,24 @@
-document.addEventListener('DOMContentLoaded', function () {
-    var searchInput = document.getElementById('searchRows');
-    var eventTable = document.getElementById('eventTable');
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("searchRows");
 
-    if (!searchInput || !eventTable) {
+    if (!searchInput) {
         return;
     }
 
-    searchInput.addEventListener('input', function () {
-        var searchText = searchInput.value.toLowerCase().trim();
-        var rows = eventTable.getElementsByTagName('tr');
+    const table = document.getElementById("eventTable") || document.getElementById("userTable");
 
-        for (var i = 1; i < rows.length; i++) {
-            var eventNameCell = rows[i].getElementsByTagName('td')[1];
+    if (!table) {
+        return;
+    }
 
-            if (eventNameCell) {
-                var eventName = eventNameCell.textContent.toLowerCase();
+    const rows = table.getElementsByTagName("tr");
 
-                if (eventName.indexOf(searchText) > -1) {
-                    rows[i].style.display = '';
-                } else {
-                    rows[i].style.display = 'none';
-                }
-            }
+    searchInput.addEventListener("input", function () {
+        const searchText = searchInput.value.toLowerCase().trim();
+
+        for (let i = 1; i < rows.length; i++) {
+            const rowText = rows[i].textContent.toLowerCase();
+            rows[i].style.display = rowText.includes(searchText) ? "" : "none";
         }
     });
 });
