@@ -7,6 +7,16 @@ document.addEventListener("DOMContentLoaded", function()
         attribution: "&copy; OpenStreetMap contributors"
     }).addTo(map);
 
+    window.addEventListener("load", function()
+    {
+        map.invalidateSize();
+    });
+
+    window.addEventListener("resize", function()
+    {
+        map.invalidateSize();
+    });
+
     const redIcon = L.divIcon({
         className: "red-marker",
         iconSize: [14, 14]
