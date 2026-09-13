@@ -64,5 +64,7 @@
 
         #middle {
             padding: 20px;
+            flex: 1;
+            min-width: 0;
         }
     </style>

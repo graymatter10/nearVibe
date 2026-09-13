@@ -65,6 +65,8 @@
         border-radius: 12px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
         padding: 20px;
+        box-sizing: border-box;
+        height: 520px;
     }
 
     #mapCard > p {
@@ -84,6 +86,7 @@
         padding: 20px;
         box-sizing: border-box;
         overflow-y: auto;
+        height: 520px;
     }
 
     #detailsCard > p {
