@@ -1,4 +1,5 @@
 <?php
+
 if(!isset($currentUser))
 {
     http_response_code(403);
@@ -7,26 +8,16 @@ if(!isset($currentUser))
 
 require_once("../../models/admin/adminModel.php");
 
-if($_SERVER['REQUEST_METHOD']=='POST')
+markReportedEvents();
+
+if($_SERVER["REQUEST_METHOD"]=="POST")
 {
-    $eid=(int)($_POST['eid'] ?? 0);
-    $action=$_POST['action'] ?? '';
+    $eid=$_POST["eid"];
+    $action=$_POST["action"];
 
-    if($action=='close')
+    if($action=="delete")
     {
-        if(closeEventAsAdmin($eid,$_SESSION['uid']))
-        {
-            $message="Event closed successfully.";
-        }
-        else
-        {
-            $message="Event is already closed or could not be closed.";
-        }
-    }
-
-    if($action=='delete')
-    {
-        if(deleteEventAsAdmin($eid,$_SESSION['uid']))
+        if(deleteEventAsAdmin($eid,$_SESSION["uid"]))
         {
             $message="Event deleted successfully.";
         }
@@ -38,4 +29,5 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 }
 
 $events=getAdminEvents();
+
 ?>
