@@ -336,7 +336,7 @@ a {
 
         Already registered?
 
-        <a href="corporate-login.php">
+        <a href="login.php">
             Login
         </a>
 
@@ -346,7 +346,7 @@ a {
 
         Create Account as
 
-        <a href="create-cllient-account.php">
+        <a href="create-client-account.php">
             Client
         </a>
 

@@ -311,7 +311,7 @@ a {
             </label>
 
 
-            <a href="client-reset-password.php">
+            <a href="reset-password.php">
                 Forgot password?
             </a>
 
