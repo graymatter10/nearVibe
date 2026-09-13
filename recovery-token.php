@@ -1,6 +1,9 @@
 <?php
 
 
+require_once __DIR__ . "/controllers/guestOnly.php";
+
+
 $email = isset($_GET['email']) ? $_GET['email'] : "";
 $token = isset($_GET['token']) ? $_GET['token'] : "";
 

@@ -1,6 +1,6 @@
 <?php
 
-    require_once __DIR__ . "/../models/userControl.php";
+    require_once __DIR__ . "/../models/authModel.php";
 
     if ($_SERVER["REQUEST_METHOD"] != "POST") {
         header("Location: ../index.php");
@@ -13,10 +13,16 @@
     }
 
     $email = $_POST["email"];
-    $user = findUserByEmail($email);
+    $rawPassword = $_POST["password"];
+    $user = findUserByEmailFull($email);
 
     if (!$user) {
         echo "No account found with this email";
+        exit;
+    }
+
+    if (!verifyPassword($rawPassword, $user["password"])) {
+        echo "Incorrect password";
         exit;
     }
 

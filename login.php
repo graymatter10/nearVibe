@@ -1,7 +1,7 @@
 <?php
 
 
-session_start();
+require_once __DIR__ . "/controllers/guestOnly.php";
 
 
 if (isset($_GET['reset']) && $_GET['reset'] == "success") {
@@ -244,7 +244,7 @@ a {
 
     <form
         method="POST"
-        action="../../Controllers/ClientAuthController.php"
+        action="controllers/login.php"
         onsubmit="return clientLogin(event)"
     >
 

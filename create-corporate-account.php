@@ -1,3 +1,8 @@
+<?php
+
+require_once __DIR__ . "/controllers/guestOnly.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -196,7 +201,7 @@ a {
 
     <form
         method="POST"
-        action="../../Controllers/CorporateAuthController.php"
+        action="controllers/corporate/registerControls.php"
         onsubmit="return createCorporate()"
     >
 

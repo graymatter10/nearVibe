@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+require_once __DIR__ . "/controllers/guestOnly.php";
 
 ?>
 <!DOCTYPE html> 
@@ -198,7 +198,7 @@ a {
 
     <form 
         method="POST" 
-        action="../../Controllers/ClientAuthController.php"
+        action="controllers/client/registerControls.php"
         onsubmit="return createClient(event)"
     > 
 

@@ -1,7 +1,12 @@
-<!DOCTYPE html> 
-<html lang="en"> 
- 
-<head> 
+<?php
+
+require_once __DIR__ . "/controllers/guestOnly.php";
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
  
 <meta charset="UTF-8"> 
  
@@ -403,8 +408,8 @@ input:focus {
  
             <form 
                 method="POST" 
-                action="../../Controllers/ClientAuthController.php" 
-                onsubmit="return validateResetPassword()" 
+                action="controllers/resetPassword.php"
+                onsubmit="return validateResetPassword()"
             > 
 
                 <input 
